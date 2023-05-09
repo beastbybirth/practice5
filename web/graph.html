@@ -22,7 +22,7 @@
     <div id="container"></div>
     <script>
         // Make API call to retrieve data
-        fetch('http://localhost:5000/sensordata')
+        fetch('https://mqtt-60l4.onrender.com/sensordata')
             .then(response => response.json())
             .then(data => {
                 // Format the data for Highcharts
