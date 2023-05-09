@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:4000';
+const API_URL = 'https://api-zr54.onrender.com';
 
 $("#navbar-placeholder").load("navbar.html");
 
