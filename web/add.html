@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Device</title>
+	<link rel="stylesheet" href="add.css">
+</head>
+<body>
+	<div id="navbar-placeholder"></div>
+	<h1>Add Device</h1>
+	<form>
+		<label for="deviceName">Device Name:</label>
+		<input type="text" id="deviceName" name="deviceName"><br><br>
+
+		<label for="deviceType">Device Type:</label>
+		<select id="deviceType" name="deviceType" onchange="showAttributes()">
+			<option value="">Select a device type</option>
+			<option value="light">Light</option>
+			<option value="ac">AC</option>
+			<option value="security">Security</option>
+		</select><br><br>
+
+		<div class="light-attributes">
+			<label for="color">Color:</label>
+			<input type="color" id="color" name="color"><br><br>
+
+			<label for="state">State:</label>
+			<select id="state" name="state">
+				<option value="">Select a state</option>
+				<option value="On">On</option>
+				<option value="Off">Off</option>
+			</select><br><br>
+            <input type="submit" value="Save to Light" id="slight">
+		</div>
+
+		<div class="ac-attributes">
+			<label for="temp">Temperature:</label>
+			<input type="number" id="temp" name="temp"><br><br>
+
+			<label for="fanSpeed">Fan Speed:</label>
+			<select id="fanSpeed" name="fanSpeed">
+				<option value="">Select a fan speed</option>
+				<option value="Low">Low</option>
+				<option value="Medium">Medium</option>
+				<option value="High">High</option>
+			</select><br><br>
+
+			<label for="mode">Mode:</label>
+			<select id="mode" name="mode">
+				<option value="">Select a mode</option>
+				<option value="Cool">Cool</option>
+				<option value="Heat">Heat</option>
+				<option value="Fan">Fan</option>
+			</select><br><br>
+            <input type="submit" id="sac" value="Save to AC">
+		</div>
+
+		<div class="security-attributes">
+			<label for="lockState">Lock State:</label>
+			<select id="lockState" name="lockState">
+				<option value="">Select a lock state</option>
+				<option value="Locked">Locked</option>
+				<option value="Unlocked">Unlocked</option>
+			</select><br><br>
+
+			<label for="alarmState">Alarm State:</label>
+			<select id="alarmState" name="alarmState">
+				<option value="">Select an alarm state</option>
+				<option value="On">On</option>
+				<option value="Off">Off</option>
+			</select><br><br>
+            <input type="submit" id="ssec" value="Save to Security">
+		</div>
+	</form>
+	<script>
+        function showAttributes() {
+            let deviceType = document.getElementById("deviceType").value;
+            let lightAttributes = document.querySelector(".light-attributes");
+            let acAttributes = document.querySelector(".ac-attributes");
+            let securityAttributes = document.querySelector(".security-attributes");
+            document.addEventListener("DOMContentLoaded", function() {
+    document.querySelector(".light-attributes").classList.add("show-attributes");
+});
+
+            switch(deviceType) {
+                case "light":
+                    lightAttributes.classList.add("show-attributes");
+                    acAttributes.classList.remove("show-attributes");
+                    securityAttributes.classList.remove("show-attributes");
+                    break;
+                case "ac":
+                    lightAttributes.classList.remove("show-attributes");
+                    acAttributes.classList.add("show-attributes");
+                    securityAttributes.classList.remove("show-attributes");
+                    break;
+                case "security":
+                    lightAttributes.classList.remove("show-attributes");
+                    acAttributes.classList.remove("show-attributes");
+                    securityAttributes.classList.add("show-attributes");
+                    break;
+                default:
+                    lightAttributes.classList.remove("show-attributes");
+                    acAttributes.classList.remove("show-attributes");
+                    securityAttributes.classList.remove("show-attributes");
+            }
+        }
+    </script>
+    </body>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"  ></script>
+    <script src="app.js"></script>
+    </html>

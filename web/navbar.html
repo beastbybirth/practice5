@@ -1,0 +1,52 @@
+<nav class="navbar">
+    <div class="navbar-logo">
+      <a href="/">Smart Building</a>
+    </div>
+    <ul class="navbar-links">
+        <li><a href="/light">Light</a></li>
+        <li><a href="/add">Add device</a></li>
+      <li><a href="/ac">AC</a></li>
+      <li><a href="/security">Security</a></li>
+      <li><a href="/graph">Graph</a></li>
+    </ul>
+  </nav>
+<style>
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 20px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li {
+  margin-right: 20px;
+}
+
+.navbar-links li:last-child {
+  margin-right: 0;
+}
+
+.navbar-links a {
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+}
+
+</style>  

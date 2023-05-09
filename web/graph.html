@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Sensor data</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <style>
+            body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+    </style>
+        
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <div id="container"></div>
+    <script>
+        // Make API call to retrieve data
+        fetch('http://localhost:5000/sensordata')
+            .then(response => response.json())
+            .then(data => {
+                // Format the data for Highcharts
+                const chartData = data.map(item => [item.time, item.value]);
+                console.log(chartData);
+                // Create the Highcharts chart
+                Highcharts.chart('container', {
+                    title: {
+                        text: 'Sensor Data'
+                    },
+                    xAxis: {
+                        type: 'datetime'
+                    },
+                    series: [{
+                        name: 'Value',
+                        data: chartData
+                    }]
+                });
+            });
+
+    </script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.js"  ></script>
+    <script src="app.js"></script>
+</html>
