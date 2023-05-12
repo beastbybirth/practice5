@@ -1,4 +1,4 @@
-const API_URL = 'https://api-zr54.onrender.com';
+const API_URL = 'https://magenta-melomakarona-93c68a.netlify.app';
 
 $("#navbar-placeholder").load("navbar.html");
 
